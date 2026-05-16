@@ -1,0 +1,49 @@
+.prompt-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 8px 8px 8px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prompt-container:focus-within {
+  border-color: var(--border-red);
+  box-shadow: var(--inner-shadow-white);
+}
+
+.prompt-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: monospace; /* Fonte tipo máquina de escrever como no print */
+  font-size: 16px;
+  outline: none;
+}
+
+.prompt-input::placeholder {
+  color: var(--text-muted);
+}
+
+.prompt-submit-btn {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-gray);
+  color: var(--text-main);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt-submit-btn:hover {
+  background-color: #2a2a2a;
+}

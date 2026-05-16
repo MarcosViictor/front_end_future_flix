@@ -15,7 +15,7 @@ export default function Login() {
     // TODO: Implementar chamada real para o backend no futuro
     console.log('Login mockado:', { email, password });
     // Navegar para a home após o login (mock)
-    navigate('/');
+    navigate('/home');
   };
 
   return (
