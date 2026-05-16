@@ -2,10 +2,12 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import PromptInput from '../components/PromptInput';
 import TagPill from '../components/TagPill';
+import GenerationStatus from '../components/GenerationStatus';
 import './Home.css';
 
 export default function Home() {
   const [prompt, setPrompt] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
   
   // Estado para mockar as seleções iniciais
   const [selectedGenres, setSelectedGenres] = useState(['drama', 'aventura']);
@@ -15,6 +17,7 @@ export default function Home() {
   const styles = ['realista', 'animação', 'sci-fi', 'sci-fi', 'sci-fi'];
 
   const toggleGenre = (genre) => {
+    if (isGenerating) return; // Não permitir mudar durante a geração
     if (selectedGenres.includes(genre)) {
       setSelectedGenres(selectedGenres.filter(g => g !== genre));
     } else {
@@ -23,8 +26,10 @@ export default function Home() {
   };
 
   const handleCreate = () => {
+    if (!prompt.trim() || isGenerating) return;
+    
     console.log('Gerando filme com:', { prompt, selectedGenres, selectedStyle });
-    // TODO: Redirecionar para o Player no futuro
+    setIsGenerating(true);
   };
 
   return (
@@ -33,7 +38,11 @@ export default function Home() {
       
       <main className="studio-content">
         <div className="studio-header">
-          <h1>🎬 O que vamos assistir hoje?</h1>
+          {isGenerating ? (
+            <GenerationStatus />
+          ) : (
+            <h1>🎬 O que vamos assistir hoje?</h1>
+          )}
         </div>
 
         <div className="prompt-section">
@@ -41,6 +50,7 @@ export default function Home() {
             value={prompt} 
             onChange={(e) => setPrompt(e.target.value)} 
             onSubmit={handleCreate} 
+            isGenerating={isGenerating}
           />
         </div>
 

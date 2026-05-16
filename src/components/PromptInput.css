@@ -7,10 +7,16 @@
   border: 1px solid var(--border-gray);
   border-radius: 12px;
   padding: 8px 8px 8px 24px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, height 0.3s ease;
 }
 
-.prompt-container:focus-within {
+.prompt-container.generating {
+  align-items: flex-end;
+  border-color: var(--border-red);
+  min-height: 120px;
+}
+
+.prompt-container:not(.generating):focus-within {
   border-color: var(--border-red);
   box-shadow: var(--inner-shadow-white);
 }
@@ -23,6 +29,14 @@
   font-family: monospace; /* Fonte tipo máquina de escrever como no print */
   font-size: 16px;
   outline: none;
+  line-height: 1.5;
+}
+
+.prompt-input.multiline {
+  resize: none;
+  height: 90px;
+  margin-top: 8px;
+  margin-right: 16px;
 }
 
 .prompt-input::placeholder {
@@ -42,8 +56,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
 }
 
-.prompt-submit-btn:hover {
+.prompt-submit-btn:hover:not(:disabled) {
   background-color: #2a2a2a;
+}
+
+.prompt-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
 }
