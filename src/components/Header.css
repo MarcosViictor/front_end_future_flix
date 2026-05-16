@@ -1,0 +1,23 @@
+.main-header {
+  width: 100%;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil em branco */
+  background-color: transparent;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo-white {
+  color: #ffffff;
+}
+
+.logo-red {
+  color: var(--primary-color);
+}

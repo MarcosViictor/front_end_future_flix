@@ -1,0 +1,64 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.login-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.login-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-header-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.login-header-text p {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Space between fields */
+}
+
+/* Override input margin bottom for the form layout */
+.login-form .input-group {
+  margin-bottom: 0; 
+}
+
+.password-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-account-link-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-account-link {
+  font-size: 14px;
+}
