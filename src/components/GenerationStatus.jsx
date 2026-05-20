@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './GenerationStatus.css';
 
 export default function GenerationStatus() {
   const [progress, setProgress] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Simular o progresso da geração
@@ -10,7 +12,7 @@ export default function GenerationStatus() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          // TODO: Navegar para o player de verdade
+          navigate('/player');
           return 100;
         }
         return prev + 1; /* incrementa 1% a cada 100ms = 10 segundos totais */
@@ -18,7 +20,7 @@ export default function GenerationStatus() {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [navigate]);
 
   // Determinar qual etapa está ativa baseado no progresso
   const isScriptActive = progress < 30;
