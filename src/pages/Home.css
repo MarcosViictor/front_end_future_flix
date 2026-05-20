@@ -1,0 +1,82 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.studio-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.studio-header {
+  margin-bottom: 40px;
+}
+
+.studio-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.prompt-section {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.tags-section {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tags-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tags-group h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* --- ANIMAÇÕES --- */
+
+.studio-header {
+  margin-bottom: 40px;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.prompt-section {
+  width: 100%;
+  margin-bottom: 40px;
+  opacity: 0; /* Começa invisível para a animação */
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.tags-group:nth-child(1) {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.tags-group:nth-child(2) {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+

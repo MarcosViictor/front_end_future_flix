@@ -1,10 +1,20 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Player from './pages/Player';
+
 function App() {
   return (
-    <main>
-      <h1>Future Flix</h1>
-      <p>Estrutura inicial React criada com sucesso.</p>
-    </main>
-  )
+    <Router>
+      <Routes>
+        {/* Redirecionar raiz para login temporariamente para testar */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/player" element={<Player />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

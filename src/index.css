@@ -1,16 +1,75 @@
-* {
-  box-sizing: border-box;
+:root {
+  /* Cores de Fundo */
+  --bg-color-solid: #050505;
+  --bg-color-glow: #1a0505; /* Tom sutil de vermelho escuro */
+  --surface-color: #111111;
+  
+  /* Cores Principais */
+  --primary-color: #8c0b0b; /* Vermelho mais fechado do design */
+  --primary-hover: #b30f0f;
+  
+  /* Textos */
+  --text-main: #ffffff;
+  --text-muted: #8c8c8c;
+  
+  /* Bordas da Paleta */
+  --border-gray: #333333;
+  --border-red: #591c1c;
+  
+  /* Sombras Internas (Inner Shadows do Figma) */
+  --inner-shadow-white: inset 0px 2px 2.1px rgba(208, 195, 195, 0.21);
+  --inner-shadow-red: inset 0px 2px 3px rgba(242, 108, 108, 0.21);
+
+  --input-bg: #111111;
+  
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: sans-serif;
+  background-color: var(--bg-color-solid);
+  /* Background com gradiente radial para o glow vermelho sutil */
+  background-image: radial-gradient(circle at 50% 50%, var(--bg-color-glow) 0%, var(--bg-color-solid) 80%);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ANIMAÇÕES GLOBAIS --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
 }
