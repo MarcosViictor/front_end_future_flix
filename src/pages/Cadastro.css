@@ -1,18 +1,18 @@
-.login-page {
+.cadastro-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.login-content {
+.cadastro-content {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.login-form-container {
+.cadastro-form-container {
   width: 100%;
   max-width: 480px;
   display: flex;
@@ -30,13 +30,13 @@
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.login-header-text {
+.cadastro-header-text {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.login-header-text h1 {
+.cadastro-header-text h1 {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.25;
@@ -47,19 +47,19 @@
   -webkit-text-fill-color: transparent;
 }
 
-.login-header-text p {
+.cadastro-header-text p {
   color: var(--text-muted);
   font-size: 15px;
   line-height: 1.5;
 }
 
-.login-form {
+.cadastro-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
-.login-form .input-group {
+.cadastro-form .input-group {
   margin-bottom: 0;
 }
 
@@ -69,7 +69,7 @@
   gap: 8px;
 }
 
-.create-account-link-wrapper {
+.login-link-wrapper {
   display: flex;
   justify-content: flex-end;
   font-size: 14px;
@@ -77,19 +77,19 @@
   gap: 4px;
 }
 
-.create-account-link {
+.login-link {
   color: var(--primary-color);
   font-weight: 500;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.create-account-link:hover {
+.login-link:hover {
   color: var(--primary-hover);
   text-decoration: underline;
 }
 
-/* Estilos de erro de formulário */
-.login-error-message {
+/* Mensagens de Alerta (Erro e Sucesso) */
+.cadastro-error-message {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -103,7 +103,22 @@
   animation: fadeInUp 0.4s ease-out forwards;
 }
 
-.login-error-message svg {
+.cadastro-success-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(46, 204, 113, 0.08);
+  border: 1px solid rgba(46, 204, 113, 0.25);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #2ecc71;
+  font-size: 14px;
+  line-height: 1.4;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.cadastro-error-message svg,
+.cadastro-success-message svg {
   flex-shrink: 0;
 }
 
