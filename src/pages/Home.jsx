@@ -3,18 +3,21 @@ import Header from '../components/Header';
 import PromptInput from '../components/PromptInput';
 import TagPill from '../components/TagPill';
 import GenerationStatus from '../components/GenerationStatus';
+import { apiFetch } from '../services/api';
 import './Home.css';
 
 export default function Home() {
   const [prompt, setPrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  
-  // Estado para mockar as seleções iniciais
+  const [movieId, setMovieId] = useState(null);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  // Estado para os gêneros e estilos selecionados
   const [selectedGenres, setSelectedGenres] = useState(['drama', 'aventura']);
   const [selectedStyle, setSelectedStyle] = useState('animação');
 
-  const genres = ['ação', 'drama', 'aventura', 'ação', 'ação']; // Repetidos como na imagem
-  const styles = ['realista', 'animação', 'sci-fi', 'sci-fi', 'sci-fi'];
+  const genres = ['ação', 'drama', 'aventura', 'sci-fi', 'suspense'];
+  const styles = ['realista', 'animação', 'sci-fi', 'cyberpunk', 'noir'];
 
   const toggleGenre = (genre) => {
     if (isGenerating) return; // Não permitir mudar durante a geração
@@ -25,11 +28,28 @@ export default function Home() {
     }
   };
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!prompt.trim() || isGenerating) return;
+    setErrorMsg('');
     
-    console.log('Gerando filme com:', { prompt, selectedGenres, selectedStyle });
-    setIsGenerating(true);
+    try {
+      // 1. Envia a solicitação de geração para a API do backend
+      const data = await apiFetch('/movies/generate', {
+        method: 'POST',
+        body: JSON.stringify({
+          prompt,
+          genres: selectedGenres,
+          style: selectedStyle
+        })
+      });
+      
+      // 2. Salva o ID do filme criado e ativa a tela de progresso
+      setMovieId(data.id);
+      setIsGenerating(true);
+    } catch (err) {
+      setErrorMsg(err.message || 'Falha ao iniciar a geração do filme. Tente novamente.');
+      console.error(err);
+    }
   };
 
   return (
@@ -37,9 +57,15 @@ export default function Home() {
       <Header />
       
       <main className="studio-content">
+        {errorMsg && (
+          <div style={{ maxWidth: '600px', margin: '0 auto 20px auto', padding: '12px', background: 'rgba(229,62,62,0.1)', border: '1px solid rgba(229,62,62,0.3)', color: '#fc8181', borderRadius: '8px', textAlign: 'center', fontSize: '14px' }}>
+            ⚠️ {errorMsg}
+          </div>
+        )}
+
         <div className="studio-header">
           {isGenerating ? (
-            <GenerationStatus />
+            <GenerationStatus movieId={movieId} />
           ) : (
             <h1>🎬 O que vamos assistir hoje?</h1>
           )}

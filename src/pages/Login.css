@@ -73,3 +73,25 @@
   opacity: 0;
   animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
+
+.auth-alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.error-alert {
+  background-color: rgba(229, 62, 62, 0.15);
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  color: #fc8181;
+}
+
+.success-alert {
+  background-color: rgba(72, 187, 120, 0.15);
+  border: 1px solid rgba(72, 187, 120, 0.3);
+  color: #68d391;
+}
+
