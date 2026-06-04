@@ -5,6 +5,7 @@ import Cadastro from './pages/Cadastro';
 import Catalogo from './pages/Catalogo';
 import Player from './pages/Player';
 import MeusFilmes from './pages/MeusFilmes';
+import LojaIA from './pages/LojaIA';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/player" element={<Player />} />
         <Route path="/meus-filmes" element={<MeusFilmes />} />
+        <Route path="/loja-ia" element={<LojaIA />} />
       </Routes>
     </Router>
   );
