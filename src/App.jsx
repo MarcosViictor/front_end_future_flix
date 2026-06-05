@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
+import Catalogo from './pages/Catalogo';
 import Player from './pages/Player';
+<<<<<<< HEAD
 import Catalog from './pages/Catalog';
 import MyMovies from './pages/MyMovies';
 import FlowPlayer from './pages/FlowPlayer';
@@ -23,6 +26,10 @@ function RootRedirect() {
   const token = localStorage.getItem('token');
   return token ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />;
 }
+=======
+import MeusFilmes from './pages/MeusFilmes';
+import LojaIA from './pages/LojaIA';
+>>>>>>> origin/main
 
 function App() {
   return (
@@ -33,6 +40,7 @@ function App() {
         
         {/* Rota Pública */}
         <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
         
         {/* Rotas Protegidas por JWT */}
         <Route 
@@ -82,6 +90,13 @@ function App() {
 
         {/* Fallback de rotas inexistentes redireciona para a raiz */}
         <Route path="*" element={<Navigate to="/" replace />} />
+=======
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/catalogo" element={<Catalogo />} />
+        <Route path="/player" element={<Player />} />
+        <Route path="/meus-filmes" element={<MeusFilmes />} />
+        <Route path="/loja-ia" element={<LojaIA />} />
+>>>>>>> origin/main
       </Routes>
     </Router>
   );

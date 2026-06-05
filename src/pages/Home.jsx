@@ -16,8 +16,13 @@ export default function Home() {
   const [selectedGenres, setSelectedGenres] = useState(['drama', 'aventura']);
   const [selectedStyle, setSelectedStyle] = useState('animação');
 
+<<<<<<< HEAD
   const genres = ['ação', 'drama', 'aventura', 'sci-fi', 'suspense'];
   const styles = ['realista', 'animação', 'sci-fi', 'cyberpunk', 'noir'];
+=======
+  const genres = ['ação', 'drama', 'aventura', 'fantasia', 'suspense'];
+  const styles = ['realista', 'animação', 'sci-fi', 'cyberpunk', 'retro-futurista'];
+>>>>>>> origin/main
 
   const toggleGenre = (genre) => {
     if (isGenerating) return; // Não permitir mudar durante a geração
